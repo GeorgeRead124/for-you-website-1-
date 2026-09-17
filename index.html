@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>For You</title>
+<meta name="description" content="A little something made just for you." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="progress-rail"><div class="progress-rail-fill" id="progressFill"></div></div>
+
+<button class="music-toggle paused" id="musicToggle" aria-label="Toggle music" aria-pressed="false">
+  <span class="bars"><span></span><span></span><span></span></span>
+</button>
+
+<!-- ============ 1. LANDING ============ -->
+<section class="section landing" id="landing">
+  <canvas class="stars-canvas" id="starsHero"></canvas>
+  <div class="landing-inner">
+    <div class="landing-kicker" id="kickerName">Hey you...</div>
+    <h1 class="landing-line">There's something I made for you.</h1>
+    <p class="landing-line second">It'll only take a few minutes.</p>
+    <button class="start-btn" id="startBtn">Start the journey →</button>
+    <div class="landing-hint">best with sound, and a moment to yourself</div>
+  </div>
+</section>
+
+<!-- ============ 2. OUR STORY ============ -->
+<section class="section" id="story">
+  <div class="wrap">
+    <p class="eyebrow reveal">Our story</p>
+    <h2 class="section-title reveal">How we got here</h2>
+    <div class="timeline" id="timeline"></div>
+  </div>
+</section>
+
+<!-- ============ 3. MEMORIES ============ -->
+<section class="section" id="memories">
+  <div class="wrap-wide">
+    <p class="eyebrow reveal">Memories</p>
+    <h2 class="section-title reveal">Moments worth keeping</h2>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+</section>
+
+<div class="viewer" id="viewer">
+  <button class="viewer-close" id="viewerClose" aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.4"><path d="M5 5l14 14M19 5L5 19"/></svg>
+  </button>
+  <div class="viewer-frame">
+    <div class="photo" id="viewerPhoto" style="--ar:4/3;"></div>
+    <p class="viewer-caption" id="viewerCaption"></p>
+  </div>
+</div>
+
+<!-- ============ 4. LITTLE THINGS ============ -->
+<section class="section" id="things">
+  <div class="wrap">
+    <p class="eyebrow reveal">A few things</p>
+    <h2 class="section-title reveal">Things I love about you</h2>
+    <div class="things-list" id="thingsList"></div>
+  </div>
+</section>
+
+<!-- ============ 5. QUIZ ============ -->
+<section class="section" id="quiz">
+  <div class="wrap">
+    <p class="eyebrow reveal">Just for fun</p>
+    <h2 class="section-title reveal">How well do you remember us?</h2>
+    <div class="quiz-card reveal">
+      <div class="quiz-progress" id="quizProgress"></div>
+      <div id="quizActive">
+        <p class="quiz-q" id="quizQuestion"></p>
+        <div class="quiz-options" id="quizOptions"></div>
+        <p class="quiz-reaction" id="quizReaction"></p>
+      </div>
+      <div class="quiz-final" id="quizFinal">
+        <p class="score" id="quizScore"></p>
+        <p id="quizScoreLine"></p>
+        <button class="quiz-restart" id="quizRestart">play again</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. SECRET MESSAGE ============ -->
+<section class="section secret-section" id="secret">
+  <div class="wrap">
+    <p class="eyebrow reveal">Something hidden</p>
+    <h2 class="section-title reveal">Find the message</h2>
+    <p class="secret-prompt reveal" id="secretPrompt"></p>
+    <div class="secret-stars reveal" id="secretStars"></div>
+    <div class="secret-orb-wrap reveal" id="secretOrbWrap">
+      <div class="secret-ring"></div>
+      <button class="secret-orb" id="secretOrb" aria-label="Reveal"></button>
+    </div>
+    <div class="secret-message" id="secretMessage">
+      <p id="secretMessageText"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. THE LETTER ============ -->
+<section class="section" id="letter">
+  <div class="wrap">
+    <p class="eyebrow reveal">One more thing</p>
+    <h2 class="section-title reveal">A letter</h2>
+    <div class="letter-wrap reveal">
+      <p class="letter-greeting" id="letterGreeting"></p>
+      <div class="letter-body" id="letterBody"></div>
+      <p class="letter-sign" id="letterSign"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. FINAL REVEAL ============ -->
+<section class="section finale" id="finale">
+  <canvas class="stars-canvas" id="starsFinale"></canvas>
+  <div class="wrap" style="position:relative;z-index:2;">
+    <p class="finale-pre reveal">One last thing...</p>
+    <h2 class="finale-line reveal">I'd choose you again.</h2>
+    <button class="finale-btn reveal" id="finaleBtn">There's one more surprise →</button>
+
+    <div class="invitation" id="invitation">
+      <div class="invite-card">
+        <p class="invite-eyebrow" id="inviteEyebrow"></p>
+        <h3 class="invite-title" id="inviteTitle"></h3>
+        <div class="invite-rows" id="inviteRows"></div>
+        <p class="invite-note" id="inviteNote"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>made with care, just for you</footer>
+
+<audio id="bgAudio" loop preload="none"></audio>
+
+<!-- CONFIG must load before app.js -->
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
