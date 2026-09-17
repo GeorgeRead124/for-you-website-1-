@@ -29,7 +29,7 @@ const CONFIG = {
 
   // ---- 3. Memories gallery ----
   gallery: [
-    { src: "photos/memory-1.jpg", caption: "That weekend by the coast" },
+    { src: "photos/memory-1.JPG", caption: "That weekend by the coast" },
     { src: "photos/memory-2.JPG", caption: "Your terrible/wonderful pancakes" },
     { src: "photos/memory-3.JPG", caption: "The concert we almost missed" },
     { src: "photos/memory-4.JPG", caption: "Rainy Sunday, no plans" },
